@@ -1,0 +1,21 @@
+name: Devops github actions parcial
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install Surge
+        run: npm install -g surge
+
+      - name: Deploy surge 
+        run: surge --token 48a7053cfa074da675c422cfc4272cbb --project ./ --domain devops-practice-heger-mel.surge.sh
+        
